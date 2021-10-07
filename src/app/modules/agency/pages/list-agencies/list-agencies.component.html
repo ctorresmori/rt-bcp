@@ -2,7 +2,18 @@
   <app-agency-card
     [agency]="item"
     [order]="i"
+    [photo]="photos[i]"
     (agencySelected)="agencyClick(i)"
     (favoriteSelected)="favoriteClick(i)"
+    (locationSelected)="seeLocation(i)"
   ></app-agency-card>
 </div>
+
+<button
+  mat-fab
+  color="primary"
+  aria-label="Example icon button with a delete icon"
+  class="list-agencies__add"
+>
+  <mat-icon>add</mat-icon>
+</button>

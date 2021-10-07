@@ -9,17 +9,20 @@
   display: grid;
   grid-template-columns: 1fr 5fr 1fr;
   border-bottom: 1px solid #eee;
-  padding: 0.5rem 0px;
+  padding: 0.5rem 1rem;
   &__photo {
     display: flex;
     align-items: center;
     justify-content: center;
     & > img {
-      width: 50%;
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
       border-radius: 50%;
     }
   }
   &__description {
+    padding: 0.125rem 1rem;
     &--title {
       font-weight: 500;
       font-size: 1rem;
@@ -36,13 +39,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  .star-border {
-    color: #999;
-  }
-
-  .star-filled {
-    color: goldenrod;
+    &--star-border {
+      color: #999;
+    }
+    &--star-filled {
+      color: goldenrod;
+    }
+    &--map-icon {
+      color: green;
+    }
   }
 }

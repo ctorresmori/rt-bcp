@@ -1,6 +1,6 @@
 <div class="agency">
   <div class="agency__photo" (click)="agencyClick()">
-    <img [src]="agency.photo || 'assets/images/user.png'" alt="" />
+    <img [src]="photo || 'assets/images/user.png'" alt="" />
   </div>
   <div class="agency__description" (click)="agencyClick()">
     <div class="agency__description--title">{{ agency.agencia }}</div>
@@ -17,17 +17,22 @@
         *ngIf="agency.favorite"
         aria-hidden="false"
         aria-label="botón favorito"
-        class="star-filled"
+        class="agency__icon--star-filled"
       >
         star
       </mat-icon>
       <mat-icon
         aria-hidden="false"
         aria-label="Ícono correcto"
-        class="star-border"
+        class="agency__icon--star-border"
         *ngIf="!agency.favorite"
       >
         star_border
+      </mat-icon>
+    </button>
+    <button class="button-fav" (click)="clickLocation()">
+      <mat-icon aria-label="Ver el mapa" class="agency__icon--map-icon">
+        location_on
       </mat-icon>
     </button>
   </div>

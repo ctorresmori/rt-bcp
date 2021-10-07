@@ -9,8 +9,10 @@ import { AgencyModel } from '../../models/agency.model';
 export class AgencyCardComponent {
   @Input() agency!: AgencyModel;
   @Input() order!: number;
+  @Input() photo!: string;
   @Output() agencySelected = new EventEmitter();
   @Output() favoriteSelected = new EventEmitter();
+  @Output() locationSelected = new EventEmitter();
 
   agencyClick() {
     this.agencySelected.emit(this.order);
@@ -18,5 +20,9 @@ export class AgencyCardComponent {
 
   changeFavoriteAgency() {
     this.favoriteSelected.emit(this.order);
+  }
+
+  clickLocation() {
+    this.locationSelected.emit(this.order);
   }
 }
