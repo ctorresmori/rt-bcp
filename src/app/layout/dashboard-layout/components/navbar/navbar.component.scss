@@ -11,10 +11,19 @@
 }
 
 .navbar__title {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
   color: $colorLight;
   font-size: 1.125rem;
   align-items: center;
   padding: 0px 2rem;
+}
+
+.navbar__title--modal {
+  color: $colorLight;
+  font-size: 1.125rem;
+  text-align: center;
+  width: 100%;
 }
 
 .navbar__buttons {

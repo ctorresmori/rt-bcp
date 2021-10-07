@@ -1,6 +1,6 @@
 <span class="snackbar">
   <span>
-    {{ snackbarService.message | async }}
+    {{ snackbarService.message$ | async }}
   </span>
   <div class="spacer"></div>
   <button class="snackbar__button" mat-button color="accent" (click)="snackBarRef.dismiss()">

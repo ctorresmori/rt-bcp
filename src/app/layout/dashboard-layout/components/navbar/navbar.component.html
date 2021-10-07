@@ -1,16 +1,27 @@
 <nav class="navbar">
-  <div class="navbar__title">Agencias</div>
-  <span class="spacer"></span>
-  <div class="navbar__buttons">
-    <button>
-      <mat-icon aria-hidden="false" aria-label="Ícono de búsqueda">
-        search
-      </mat-icon>
-    </button>
-    <button>
-      <mat-icon aria-hidden="false" aria-label="Ícono correcto">
-        check_circle
-      </mat-icon>
-    </button>
-  </div>
+  <ng-container *ngIf="navbarService.pageNav$ | async; else modalNav">
+    <div class="navbar__title">
+      <mat-icon>menu</mat-icon>
+      <div>{{ navbarService.titleNav$ | async }}</div>
+    </div>
+    <span class="spacer"></span>
+    <div class="navbar__buttons">
+      <button>
+        <mat-icon aria-hidden="false" aria-label="Ícono de búsqueda">
+          search
+        </mat-icon>
+      </button>
+      <button>
+        <mat-icon aria-hidden="false" aria-label="Ícono correcto">
+          check_circle
+        </mat-icon>
+      </button>
+    </div>
+  </ng-container>
+
+  <ng-template #modalNav>
+    <div class="navbar__title--modal">
+      {{ navbarService.titleNav$ | async }}
+    </div>
+  </ng-template>
 </nav>

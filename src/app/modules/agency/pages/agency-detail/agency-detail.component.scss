@@ -2,16 +2,19 @@
 
 .agency-form {
   padding: 2rem 3.5rem;
+  &__input {
+    width: 100%;
+    margin-top: 2rem;
+  }
+  &__submit {
+    margin-top: 3rem;
+    text-align: center;
+  }
 }
 
-.agency-form__input {
+.agency-form__cancel {
+  margin-top: 0.25rem;
   width: 100%;
-  margin-top: 2rem;
-}
-
-.agency-form__submit {
-  margin-top: 3rem;
-  text-align: center;
 }
 
 .agency-form__button {

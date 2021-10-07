@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NavbarService } from 'src/app/layout/dashboard-layout/services/navbar.service';
 import { SnackbarService } from 'src/app/modules/shared/services/snackbar.service';
 import { AgencyModel } from '../../models/agency.model';
 import { AgencyService } from '../../services/agency.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-agency-detail',
@@ -21,7 +23,9 @@ export class AgencyDetailComponent implements OnInit {
     private agencyService: AgencyService,
     private fb: FormBuilder,
     private router: Router,
-    private snackbarService: SnackbarService
+    private locationService: Location,
+    private snackbarService: SnackbarService,
+    private navbarService: NavbarService
   ) {
     this.agencyForm = this.fb.group({
       name: ['', [Validators.required, Validators.maxLength(50)]],
@@ -33,12 +37,18 @@ export class AgencyDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.navbarService.setModalNavMode();
+    this.navbarService.setTitle('Detalle de Agencia');
     this.agencyService.retrieveAgencyData();
     this.setFormData();
   }
 
   get f() {
     return this.agencyForm.controls;
+  }
+
+  backButton() {
+    this.locationService.back();
   }
 
   setFormData() {
@@ -64,7 +74,7 @@ export class AgencyDetailComponent implements OnInit {
       lat: agencyFormValues.lat,
       lon: agencyFormValues.lon
     };
-    const agencies = [...this.agencyService.agencys.value];
+    const agencies = [...this.agencyService.agencys$.value];
     agencies[+this.agencyId] = newAgency;
     this.agencyService.setAgenciesStorage(agencies);
     setTimeout(() => {

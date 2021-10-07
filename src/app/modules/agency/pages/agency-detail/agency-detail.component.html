@@ -45,5 +45,14 @@
         class="agency-form__loader"
       ></mat-progress-bar>
     </button>
+
+    <button
+      class="agency-form__cancel"
+      mat-button
+      (click)="backButton()"
+      [disabled]="loading || agencyForm.invalid"
+    >
+      <span>Cancelar</span>
+    </button>
   </div>
 </form>
