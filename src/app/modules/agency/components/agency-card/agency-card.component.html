@@ -1,5 +1,5 @@
 <div class="agency">
-  <div class="agency__photo">
+  <div class="agency__photo" (click)="agencyClick()">
     <img [src]="agency.photo || 'assets/images/user.png'" alt="" />
   </div>
   <div class="agency__description" (click)="agencyClick()">
@@ -12,8 +12,21 @@
     </div>
   </div>
   <div class="agency__icon">
-    <button class="button-fav">
-      <mat-icon aria-hidden="false" aria-label="Ícono correcto">
+    <button class="button-fav" (click)="changeFavoriteAgency()">
+      <mat-icon
+        *ngIf="agency.favorite"
+        aria-hidden="false"
+        aria-label="botón favorito"
+        class="star-filled"
+      >
+        star
+      </mat-icon>
+      <mat-icon
+        aria-hidden="false"
+        aria-label="Ícono correcto"
+        class="star-border"
+        *ngIf="!agency.favorite"
+      >
         star_border
       </mat-icon>
     </button>

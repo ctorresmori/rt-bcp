@@ -7,4 +7,5 @@ export interface AgencyModel {
   lat: number;
   lon: number;
   photo?: string;
+  favorite?: boolean;
 }

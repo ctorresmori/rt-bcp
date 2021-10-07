@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { AgencyModel } from '../../models/agency.model';
 
 @Component({
@@ -10,10 +9,14 @@ import { AgencyModel } from '../../models/agency.model';
 export class AgencyCardComponent {
   @Input() agency!: AgencyModel;
   @Input() order!: number;
-
-  constructor(private router: Router) {}
+  @Output() agencySelected = new EventEmitter();
+  @Output() favoriteSelected = new EventEmitter();
 
   agencyClick() {
-    this.router.navigateByUrl('/dashboard/agencias/' + this.order);
+    this.agencySelected.emit(this.order);
+  }
+
+  changeFavoriteAgency() {
+    this.favoriteSelected.emit(this.order);
   }
 }

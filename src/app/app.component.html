@@ -1,7 +1,18 @@
-<router-outlet *ngIf="!(spinner.spinnerObservable | async)?.show">
-</router-outlet>
 <ngx-spinner
   bdColor="rgba(255, 255, 255, 1)"
   template="<img src='assets/images/logo.svg' width='200px' />"
 >
 </ngx-spinner>
+
+<ngx-spinner
+  [name]="LOADERS_ENUM.MAIN_LOADER"
+  bdColor="rgba(0, 0, 0, 0.6)"
+  size="medium"
+  color="#fff"
+  type="square-jelly-box"
+  [fullScreen]="true"
+>
+  <p style="font-size: 16px; color: white">Espere un momento...</p>
+</ngx-spinner>
+
+<router-outlet *ngIf="!loading"> </router-outlet>

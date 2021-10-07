@@ -80,10 +80,7 @@ export class AgencyDetailComponent implements OnInit {
     setTimeout(() => {
       this.loading = true;
       this.router.navigateByUrl('/dashboard/agencias');
-      this.snackbarService.openSnackBar(
-        'Información actualizada correctamente 😎👌',
-        2
-      );
+      this.snackbarService.openSnackBar('Se actualizó la información', 2);
     }, 2000);
   }
 }
