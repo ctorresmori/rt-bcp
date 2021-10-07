@@ -6,7 +6,7 @@ import { DashboardLayoutComponent } from './layout/dashboard-layout/dashboard-la
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/dashboard',
+    redirectTo: 'dashboard',
     pathMatch: 'full'
   },
   {
@@ -28,7 +28,8 @@ const routes: Routes = [
         path: 'agencias',
         loadChildren: () =>
           import('./modules/agency/agency.module').then((m) => m.AgencyModule)
-      }
+      },
+      { path: '**', redirectTo: '/agencias', pathMatch: 'full' }
     ]
   },
   { path: '**', redirectTo: '/dashboard', pathMatch: 'full' }

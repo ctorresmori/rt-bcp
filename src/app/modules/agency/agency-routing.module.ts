@@ -4,7 +4,7 @@ import { AgencyDetailComponent } from './pages/agency-detail/agency-detail.compo
 import { ListAgenciesComponent } from './pages/list-agencies/list-agencies.component';
 
 const routes: Routes = [
-  { path: '', component: ListAgenciesComponent },
+  { path: '', component: ListAgenciesComponent, pathMatch: 'full' },
   { path: ':id', component: AgencyDetailComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
