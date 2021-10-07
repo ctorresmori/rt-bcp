@@ -6,11 +6,11 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { CoreModule } from './core/core.module';
-import { SharedModule } from './modules/shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { DashboardLayoutModule } from './layout/dashboard-layout/dashboard-layout.module';
 import { AuthLayoutModule } from './layout/auth-layout/auth-layout.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './modules/shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,6 +27,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AuthLayoutModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

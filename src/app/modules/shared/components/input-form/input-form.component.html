@@ -1,0 +1,13 @@
+<mat-form-field appearance="legacy" class="agency-form__input">
+  <mat-label>{{ label }}</mat-label>
+  <input matInput [formControl]="control" />
+  <mat-hint *ngIf="maxLength">
+    {{ control.value.length }}/{{ maxLength }}
+  </mat-hint>
+  <mat-error>
+    <span *ngIf="control.errors?.required"> El campo es obligatorio</span>
+    <span *ngIf="control.errors?.maxlength">
+      El campo excede la cantidad de caractéres
+    </span>
+  </mat-error>
+</mat-form-field>

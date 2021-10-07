@@ -1,32 +1,34 @@
 <form class="agency-form" [formGroup]="agencyForm">
-  <mat-form-field appearance="legacy" class="agency-form__input">
-    <mat-label>Nombre de agencia</mat-label>
-    <input matInput placeholder="Placeholder" formControlName="name" />
-    <mat-hint>{{ agencyForm.value.name.length }}/50</mat-hint>
-  </mat-form-field>
+  <app-input-form
+    [control]="f.name"
+    [label]="'Nombre de Agencia'"
+    [maxLength]="30"
+  ></app-input-form>
 
-  <mat-form-field appearance="legacy" class="agency-form__input">
-    <mat-label>Dirección</mat-label>
-    <input matInput placeholder="Placeholder" formControlName="direction" />
-    <mat-hint>{{ agencyForm.value.name.length }}/100</mat-hint>
-  </mat-form-field>
+  <app-input-form
+    [control]="f.direction"
+    [label]="'Dirección'"
+    [maxLength]="100"
+  ></app-input-form>
 
-  <mat-form-field appearance="legacy" class="agency-form__input">
-    <mat-label>Distrito</mat-label>
-    <input matInput placeholder="Placeholder" formControlName="district" />
-    <mat-hint>{{ agencyForm.value.name.length }}/30</mat-hint>
-  </mat-form-field>
+  <app-input-form
+    [control]="f.district"
+    [label]="'Distrito'"
+    [maxLength]="30"
+  ></app-input-form>
 
-  <mat-form-field appearance="legacy" class="agency-form__input">
-    <mat-label>Latitud</mat-label>
-    <input matInput placeholder="Placeholder" formControlName="lat" />
-    <mat-hint>{{ agencyForm.value.name.length }}/20</mat-hint>
-  </mat-form-field>
+  <app-input-form
+    [control]="f.lat"
+    [label]="'Latitud'"
+    [msgErrorRequired]="'La latitud es obligatoria'"
+  ></app-input-form>
 
   <mat-form-field appearance="legacy" class="agency-form__input">
     <mat-label>Longitud</mat-label>
     <input matInput placeholder="Placeholder" formControlName="lon" />
-    <mat-hint>{{ agencyForm.value.name.length }}/20</mat-hint>
+    <mat-error>
+      <span *ngIf="f.lon.errors?.required"> La longitud es obligatorio</span>
+    </mat-error>
   </mat-form-field>
 
   <div class="agency-form__submit">
@@ -34,7 +36,7 @@
       class="agency-form__button"
       mat-raised-button
       (click)="updateAgency()"
-      [disabled]="loading"
+      [disabled]="loading || agencyForm.invalid"
     >
       <span>Actualizar</span>
       <mat-progress-bar

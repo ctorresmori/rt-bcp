@@ -24,9 +24,9 @@ export class AgencyDetailComponent implements OnInit {
     private snackbarService: SnackbarService
   ) {
     this.agencyForm = this.fb.group({
-      name: ['', [Validators.required]],
-      direction: ['', [Validators.required]],
-      district: ['', [Validators.required]],
+      name: ['', [Validators.required, Validators.maxLength(50)]],
+      direction: ['', [Validators.required, Validators.maxLength(100)]],
+      district: ['', [Validators.required, Validators.maxLength(30)]],
       lat: ['', [Validators.required]],
       lon: ['', [Validators.required]]
     });
@@ -35,6 +35,10 @@ export class AgencyDetailComponent implements OnInit {
   ngOnInit(): void {
     this.agencyService.retrieveAgencyData();
     this.setFormData();
+  }
+
+  get f() {
+    return this.agencyForm.controls;
   }
 
   setFormData() {
@@ -66,7 +70,10 @@ export class AgencyDetailComponent implements OnInit {
     setTimeout(() => {
       this.loading = true;
       this.router.navigateByUrl('/dashboard/agencias');
-      this.snackbarService.openSnackBar('Información actualizada correctamente 😎👌', 2);
+      this.snackbarService.openSnackBar(
+        'Información actualizada correctamente 😎👌',
+        2
+      );
     }, 2000);
   }
 }
