@@ -1,0 +1,30 @@
+@import '_colors';
+
+.agency-form {
+  padding: 2rem 3.5rem;
+}
+
+.agency-form__input {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.agency-form__submit {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.agency-form__button {
+  background-color: $colorPrimary;
+  color: $colorLight;
+  width: 100%;
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.agency-form__loader {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}

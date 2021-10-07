@@ -1,0 +1,42 @@
+.button-fav {
+  border: none;
+  background: none;
+  padding: 0.25rem;
+  cursor: pointer;
+  color: #999;
+
+}
+
+.agency {
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  border-bottom: 1px solid #eee;
+  padding: 0.5rem 0px;
+  &__photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    & > img {
+      width: 50%;
+      border-radius: 50%;
+    }
+  }
+  &__description {
+    &--title {
+      font-weight: 500;
+      font-size: 1rem;
+    }
+    &--province {
+      font-size: 0.825rem;
+    }
+    &--direction {
+      font-size: 0.775rem;
+      color: #999;
+    }
+  }
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

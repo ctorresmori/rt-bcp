@@ -1,0 +1,21 @@
+<div class="agency">
+  <div class="agency__photo">
+    <img [src]="agency.photo || 'assets/images/user.png'" alt="" />
+  </div>
+  <div class="agency__description" (click)="agencyClick()">
+    <div class="agency__description--title">{{ agency.agencia }}</div>
+    <div class="agency__description--province">
+      {{ agency.departamento }}
+    </div>
+    <div class="agency__description--direction">
+      {{ agency.direccion }}
+    </div>
+  </div>
+  <div class="agency__icon">
+    <button class="button-fav">
+      <mat-icon aria-hidden="false" aria-label="Ícono correcto">
+        star_border
+      </mat-icon>
+    </button>
+  </div>
+</div>
