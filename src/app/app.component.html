@@ -1,6 +1,7 @@
+<router-outlet *ngIf="!(spinner.spinnerObservable | async)?.show">
+</router-outlet>
 <ngx-spinner
-  bdColor="rgba(0.15, 0, 0, 0.5)"
+  bdColor="rgba(255, 255, 255, 1)"
   template="<img src='assets/images/logo.svg' width='200px' />"
 >
 </ngx-spinner>
-<router-outlet></router-outlet>

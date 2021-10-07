@@ -9,12 +9,13 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class AppComponent implements OnInit {
   title = 'reto-tecnico-bcp';
 
-  constructor(private spinner: NgxSpinnerService) {}
+  constructor(public spinner: NgxSpinnerService) {
+    this.spinner.show();
+  }
 
   ngOnInit() {
-    this.spinner.show();
     setTimeout(() => {
       this.spinner.hide();
-    }, 2000);
+    }, 3000);
   }
 }
