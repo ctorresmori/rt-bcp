@@ -30,6 +30,14 @@ export class AgencyService {
   changeFavoriteAgency(order: number) {
     const agencies = [...this.agencys$.value];
     agencies[order].favorite = !agencies[order].favorite;
-    this.setAgenciesStorage(agencies);
+
+    const agencyChanged = agencies[order];
+    let newAgencies = agencies.filter((a, i) => i !== order);
+
+    newAgencies = agencyChanged.favorite
+      ? [agencyChanged, ...newAgencies]
+      : [...newAgencies, agencyChanged];
+
+    this.setAgenciesStorage(newAgencies);
   }
 }
